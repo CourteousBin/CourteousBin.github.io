@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工作,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CourteousBin" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="如何配置 Git 进行团队开发？">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 团队协助开发">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/Git-团队协助开发/index.html">
+<meta property="og:site_name" content="CourteousBin">
+<meta property="og:description" content="如何配置 Git 进行团队开发？">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1603505-b891b59ea111aab8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://gitforwindows.org/img/gw1web_thumb.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-001.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-002.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-003.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-004.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-006.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-007.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-008.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-009.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-8.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/809218/201511/809218-20151103173852555-1275593404.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-11.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-12.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-13.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-14.png">
+<meta property="og:updated_time" content="2018-07-07T01:54:46.648Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 团队协助开发">
+<meta name="twitter:description" content="如何配置 Git 进行团队开发？">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1603505-b891b59ea111aab8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/Git-团队协助开发/">
+
+
+
+
+
+  <title>Git 团队协助开发 | CourteousBin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CourteousBin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/Git-团队协助开发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bin,">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CourteousBin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git 团队协助开发</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:56:01+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/06/Git-团队协助开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/06/Git-团队协助开发/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  如何配置 Git 进行团队开发？
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Git-团队开发"><a href="#Git-团队开发" class="headerlink" title="Git 团队开发"></a>Git 团队开发</h1><h2 id="Git-是什么？"><a href="#Git-是什么？" class="headerlink" title="Git 是什么？"></a>Git 是什么？</h2><p>Git是目前世界上最先进的分布式版本控制系统（没有之一）。</p>
+<p>集中式和分布式版本控制系统有什么区别？</p>
+<p>版本库是集中存放在<strong>中央服务器</strong>的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给<strong>中央服务器</strong>。</p>
+<p>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。</p>
+<p>和集中式版本控制系统相比，分布式版本控制系统的安全性要高很多，因为每个人电脑里都有完整的版本库，某一个人的电脑坏掉了不要紧，随便从其他人那里复制一个就可以了。而集中式版本控制系统的中央服务器要是出了问题，所有人都没法干活了。</p>
+<p>Git的优势不单是不必联网这么简单，后面我们还会看到Git极其强大的分支管理，把SVN等远远抛在了后面。</p>
+<h2 id="Git-工作原理"><a href="#Git-工作原理" class="headerlink" title="Git 工作原理"></a>Git 工作原理</h2><p><div align="center"> <img src="https://upload-images.jianshu.io/upload_images/1603505-b891b59ea111aab8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" width> </div><br></p>
+<h2 id="Git-快速入门"><a href="#Git-快速入门" class="headerlink" title="Git 快速入门"></a>Git 快速入门</h2><h3 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h3><p>最早Git是在Linux上开发的，很长一段时间内，Git也只能在Linux和Unix系统上跑。不过，慢慢地有人把它移植到了Windows上。现在，Git可以在Linux、Unix、Mac和Windows这几大平台上正常运行了。</p>
+<p>安装 Git 完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
+<p><div align="center"> <img src="https://gitforwindows.org/img/gw1web_thumb.png" width> </div><br></p>
+<h3 id="bash-基础命令"><a href="#bash-基础命令" class="headerlink" title="bash 基础命令"></a>bash 基础命令</h3><p><code>pwd</code> (Print Working Directory) 查看当前目录</p>
+<p><code>cd</code> (Change Directory) 切换目录，如 cd /etc</p>
+<p><code>ls</code> (List) 查看当前目录下内容，如 ls -al</p>
+<p><code>mkdir</code> (Make Directory) 创建目录，如 mkdir blog</p>
+<p><code>touch</code> 创建文件，如 touch index.html</p>
+<p><code>cat</code> 查看文件全部内容，如 cat index.html</p>
+<p><code>more/less</code> 查看文件，如more /etc/passwd、less /etc/passwd</p>
+<p><code>rm</code> (remove) 删除文件，如 rm index.html、rm -rf  blog</p>
+<p><code>rmdir</code> (Remove Directory) 删除文件夹，只能删除空文件夹，不常用</p>
+<p><code>mv</code> (move) 移动文件或重命名，如 mv index.html ./demo/index.html</p>
+<p><code>cp</code> (copy) 复制文件，cp index.html ./demo/index.html</p>
+<h3 id="Git-基本操作"><a href="#Git-基本操作" class="headerlink" title="Git 基本操作"></a>Git 基本操作</h3><p>命令行方式：任意目录（建议开发根目录）右键 &gt; Git Bash Here</p>
+<p>1、配置用户</p>
+<p>git config –global user.name “自已的名字”</p>
+<p>git config –global user.email “自已的邮箱地址”</p>
+<p>2、初始化仓库</p>
+<p><code>git init</code> 只是创建了一个名为.git的隐藏目录，这个目录就是存储我们历史版本的仓库。</p>
+<p>3、查看文件状态</p>
+<p>通过 <code>git status</code> 可以检测当前仓库文件的状态。</p>
+<p>4、添加文件到暂存区</p>
+<p><code>git add -A</code> 写好代码后，准备提交到 GitHub 先添加到暂存区。</p>
+<p>5、提交文件</p>
+<p><code>git commit -m &#39;备注信息&#39;</code> 经过一个相对较长阶段开发或者一个功能开发完成了，就可以提交到本地仓库了，永久保存了。</p>
+<p>6、上传到 GitHub</p>
+<p>默认你注册了 <code>GitHub</code> 账号，并配置好 <code>SSH</code> 秘钥和创建了一个仓库。</p>
+<p><code>git push xxxxxxxxx(你的仓库地址) master</code> 上传到你的 GitHub 仓库</p>
+<h2 id="Git-团队项目开发配置"><a href="#Git-团队项目开发配置" class="headerlink" title="Git 团队项目开发配置"></a>Git 团队项目开发配置</h2><h3 id="GitHub-创建一个团队项目"><a href="#GitHub-创建一个团队项目" class="headerlink" title="GitHub 创建一个团队项目"></a>GitHub 创建一个团队项目</h3><p>新建organization</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-001.png" width> </div><br></p>
+<hr>
+<p>输入Organization Name等相关信息，并点击 <code>Create organization</code></p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-002.png" width> </div><br></p>
+<hr>
+<p>邀请成员，这步我们先略过，点击 <code>Finish</code></p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-003.png" width> </div><br></p>
+<hr>
+<p>此时，我们就把团队仓库新建完毕。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-004.png" width> </div><br></p>
+<hr>
+<p>输入项目相关信息, 并点击 <code>Create repository</code></p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-006.png" width> </div><br></p>
+<p>此时，我们就把项目建好了。</p>
+<hr>
+<p>增加团队成员</p>
+<p>团队仓库初始化好以后，我们可以增加团队成员进行协作开发：</p>
+<p>点击 <code>Invite member</code></p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-007.png" width> </div><br></p>
+<p>输入你的团队成员的Github账户即可对相应的成员发出邀请，接收到邀请的成员要进Github注册邮箱进行确认方可加入：</p>
+<p>这里包含两类人：Member/Owner ：</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-008.png" width> </div><br></p>
+<p>他们拥有的权限可以自定义,管理员可根据需要配置不同团队成员的权限：</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-009.png" width> </div><br></p>
+<hr>
+<p>首先把队友直接push的权限关掉，即设置成Read。这样可以防止队友误操作，未经审核就把代码push到团队项目上。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-01.png" width> </div><br></p>
+<h3 id="开发配置"><a href="#开发配置" class="headerlink" title="开发配置"></a>开发配置</h3><p><strong>一、创建开发分支</strong></p>
+<p>master分支一般用来发布稳定版本，dev分支（开发分支）用来发布开发版本。<br>输入分支名称后，下面会跳出Create branch，点击即可创建。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-02.png" width> </div><br></p>
+<p><strong>二、Fork项目到个人的仓库</strong></p>
+<p>点击右上角的Fork，并选择你的账号（一般在第一个）。就可以Fork团队项目到个人仓库啦。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-3.png" width> </div><br></p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-4.png" width> </div><br></p>
+<p><strong>三、Clone项目到本地</strong></p>
+<p>打开git命令行，输入指令和刚才复制的地址，回车即可克隆到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone xxxxxxxxxxxxxxxx(项目地址)</span><br></pre></td></tr></table></figure>
+<p>此时你只能看到master分支，并没有把dev分支clone下来。使用 <code>git branch</code> 命令查看本地分支，发现本地只有master分支。如下图的①</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-5.png" width> </div><br></p>
+<p>如上图的②，使用 <code>git branch -a</code> 查看所有分支，就能看到远程分支。<br>根据远程分支，我们可以创建一个新的本地分支dev，并把该项目的dev分支的内容放到本地dev分支。如上图③。</p>
+<blockquote>
+<p><code>git checkout -b dev origin/dev</code>的意思是，创建一个dev分支（-b），并把远程dev分支（origin/dev）的内容放在该分支内。接着切换到该分支（checkout）</p>
+</blockquote>
+<p>现在使用 <code>git branch</code> 可以查看两个分支，并且用 <code>ls</code> 或者 <code>dir</code> 就能看到dev分支的内容了。想切换回 <code>master</code> 分支的时候，再用 <code>git checkout master</code> 即可。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-6.png" width> </div><br></p>
+<p>上面的操作完成后，你就可以在本地进行开发了。但是如果要将你修改完的代码合并到团队项目上，还需要进行下面的操作。</p>
+<p><strong>四、和团队项目保持同步</strong></p>
+<p>首先查看有没有设置upstream，使用 <code>git remote -v</code> 命令来查看。如下图①</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-7.png" width> </div><br></p>
+<p>如果没有显示upstream，则使用 <code>git remote add upstream</code> 团队项目地址 命令。如上图②<br>接着再次使用 <code>git remote -v</code> ，如果如上图③，显示出了upstream，那么就设置好了</p>
+<p>开始同步。首先执行<code>git fetch upstream</code> 获取团队项目最新版本。如下图①</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-8.png" width> </div><br></p>
+<p>此时并没有把最新版本合并到你本地的分支上，因此还需要一步。如上图②，当前分支是dev分支，执行 <code>git merge upstream/dev</code> 命令后，会将源分支（upstream/dev）合并到当前分支（dev）。</p>
+<p><strong>五、push修改到自己的项目上</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line"></span><br><span class="line">git commit -m &apos;备注信息&apos;</span><br><span class="line"></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>此时，在你的 <code>fork</code> 上 dev 分支已经提交到了 自己的代码仓库中。</p>
+<p><strong>六、请求合并到团队项目上</strong></p>
+<p>首先到你的GitHub上，进入你Fork的仓库里。点击红框处的Pull request</p>
+<p><div align="center"> <img src="https://images2015.cnblogs.com/blog/809218/201511/809218-20151103173852555-1275593404.png" width> </div><br></p>
+<p>下图左边红框，表示要合并到fzu2015/CourseManagement项目的dev分支。<br>下图右边红框，表示要从自己仓库的dev分支发起合并请求。<br>点击红框处的 Create pull request就可以发送合并请求了。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-9.png" width> </div><br></p>
+<p>当然，在发送请求之前，你可以检查一下你都改了哪些东西。在上面那个页面往下拉，就可以看到两者的对比。如下图</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-11.png" width> </div><br></p>
+<p>以上操作结束后，团队成员的流程就结束了。最后一步交给团队项目负责人来完成。</p>
+<p><strong>七、团队项目负责人审核及同意合并请求</strong></p>
+<p>首先进入GitHub的团队项目仓库中。此时右边的Pull requests显示当前项目有几个Pull request。点击进入查看。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-12.png" width> </div><br></p>
+<p>选择一个Pull request</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-13.png" width> </div><br></p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-6-14.png" width> </div><br></p>
+<p>如果没有问题，可以点击Merge pull request。这样就合并好了。</p>
+<h2 id="Git-常用命令"><a href="#Git-常用命令" class="headerlink" title="Git 常用命令"></a>Git 常用命令</h2><ul>
+<li><p>git config 配置本地仓库</p>
+<ul>
+<li><p>git config –global user.name</p>
+</li>
+<li><p>git config –global user.email</p>
+</li>
+</ul>
+</li>
+<li><p>git config –list查看配置详情</p>
+</li>
+<li><p>git init 初始一个仓库，添加–bare可以初始化一个共享（裸）仓库</p>
+</li>
+<li><p>git status 可以查看当前仓库的状态</p>
+</li>
+<li><p>git add“文件”<br>将工作区中的文件添加到暂存区中，其中file可是一个单独的文件，也可以是一个目录</p>
+</li>
+<li><p>git commit -m ‘备注信息’ 将暂存区的文件，提交到本地仓库</p>
+</li>
+<li><p>git log 可以查看本地仓库的提交历史</p>
+</li>
+<li><p>git branch查看分支</p>
+</li>
+<li><p>git branch“分支名称” 创建一个新的分支</p>
+</li>
+<li><p>git checkout“分支名称” 切换分支</p>
+</li>
+<li><p>git checkout -b deeveloper 他健并切到developer分支</p>
+</li>
+<li><p>git merge“分支名称” 合并分支</p>
+</li>
+<li><p>git branch -d “分支名称” 删除分支</p>
+</li>
+<li><p>git clone “仓库地址”获取已有仓库的副本</p>
+</li>
+<li><p>git push origin “本地分支名称:远程分支名称”将本地分支推送至远程仓库，</p>
+</li>
+<li><p>git push origin hotfix（通常的写法）相当于</p>
+<ul>
+<li>git push origin hotfix:hotfix</li>
+<li>git push origin hotfix:newfeature</li>
+<li>本地仓库分支名称和远程仓库分支名称一样的情况下可以简写成一个，即git push “仓库地址” “分支名称”，如果远程仓库没有对应分支，将会自动创建</li>
+</ul>
+</li>
+<li><p>git remote add “主机名称” “远程仓库地址”添加远程主机，即给远程主机起个别名，方便使用</p>
+</li>
+<li><p>git remote 可以查看已添加的远程主机</p>
+</li>
+<li><p>git remote show “主机名称”可以查看远程主机的信息</p>
+</li>
+<li><p>git fetch  “远程主机”</p>
+<ul>
+<li>git fetch “远程主机” “分支名称”</li>
+<li>在项目开发过程中，经常性的会遇到远程（共享）仓库和本地仓库不一致，我们可以通过git fetch 命令来更新本地仓库，使本地仓库和远程（共享）仓库保持一致。</li>
+<li>我们要注意的是，利用git fetch 获取的更新会保存在本地仓库中，但是并没有体现到我们的工作目录中，需要我们再次利用git merge来将对应的分支合并（融合）到特定分支。</li>
+<li>git pull origin 某个分支， 上操作相当于下面两步</li>
+<li>git fetch </li>
+<li>git merge origin/某个分支</li>
+<li>问题：如何查看远程主机上总共有多少个分支？</li>
+<li>git branch -a 便可以查看所有(本地+远程仓库)分支了</li>
+</ul>
+</li>
+<li><p>删除远程分支git push origin –delete 分支名称</p>
+</li>
+</ul>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><ul>
+<li><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰-史上最浅显易懂的Git教程！</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/schaepher/p/4933873.html" target="_blank" rel="noopener">Schaepher-GitHub团队项目合作流程</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/greyzeng/p/6044837.html" target="_blank" rel="noopener">Practitioner-Github团队开发示例</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/05/JavaScript数组实现分组/" rel="next" title="JavaScript数组实现分组">
+                <i class="fa fa-chevron-left"></i> JavaScript数组实现分组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/15/MongoDB/" rel="prev" title="MongoDB">
+                MongoDB <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/07/06/Git-团队协助开发/" data-title="Git 团队协助开发" data-url="http://yoursite.com/2018/07/06/Git-团队协助开发/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="Bin,">
+            
+              <p class="site-author-name" itemprop="name">Bin,</p>
+              <p class="site-description motion-element" itemprop="description">仰望星空，脚踏实地</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CourteousBin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:904343016@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-团队开发"><span class="nav-number">1.</span> <span class="nav-text">Git 团队开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">Git 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">Git 工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-快速入门"><span class="nav-number">1.3.</span> <span class="nav-text">Git 快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bash"><span class="nav-number">1.3.1.</span> <span class="nav-text">bash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash-基础命令"><span class="nav-number">1.3.2.</span> <span class="nav-text">bash 基础命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-基本操作"><span class="nav-number">1.3.3.</span> <span class="nav-text">Git 基本操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-团队项目开发配置"><span class="nav-number">1.4.</span> <span class="nav-text">Git 团队项目开发配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-创建一个团队项目"><span class="nav-number">1.4.1.</span> <span class="nav-text">GitHub 创建一个团队项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发配置"><span class="nav-number">1.4.2.</span> <span class="nav-text">开发配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-常用命令"><span class="nav-number">1.5.</span> <span class="nav-text">Git 常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感谢"><span class="nav-number">1.6.</span> <span class="nav-text">感谢</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bin,</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工作,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CourteousBin" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="uni-app跨平台框架">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uni-app、vue.nextTick">
+<meta property="og:url" content="http://yoursite.com/2018/12/26/uni-app、vue-nextTick/index.html">
+<meta property="og:site_name" content="CourteousBin">
+<meta property="og:description" content="uni-app跨平台框架">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/12-26-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/12-26-2.png">
+<meta property="og:updated_time" content="2018-12-26T13:35:44.822Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="uni-app、vue.nextTick">
+<meta name="twitter:description" content="uni-app跨平台框架">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/12-26-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/26/uni-app、vue-nextTick/">
+
+
+
+
+
+  <title>uni-app、vue.nextTick | CourteousBin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CourteousBin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/uni-app、vue-nextTick/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bin,">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CourteousBin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">uni-app、vue.nextTick</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-26T21:02:01+08:00">
+                2018-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/26/uni-app、vue-nextTick/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/12/26/uni-app、vue-nextTick/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  uni-app跨平台框架
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="uni-app"><a href="#uni-app" class="headerlink" title="uni-app"></a>uni-app</h1><blockquote>
+<p>uni-app 是一个使用 <a href="https://uniapp.dcloud.io/" target="_blank" rel="noopener">Vue.js</a> 开发跨平台应用的前端框架，开发者编写一套代码，可编译到iOS、Android、H5、小程序等多个平台。</p>
+</blockquote>
+<p>公司一款产品几年没更新了,因为技术栈的老旧,公司打算用新技术推翻重做.</p>
+<p>在选择跨平台框架的时候收获了很多 webApp 的知识.</p>
+<p>最后还是被这个标题吸引了.</p>
+<p>对于企业来说,成本就是一切,能跨4个平台,那省多少成本?</p>
+<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h2><p>用 uni-app 必须要使用配套的 IDE <a href="http://www.dcloud.io/hbuilderx.html" target="_blank" rel="noopener">HBuilderX</a></p>
+<p>我实习时第一款 IDE 是 HBuilder , 想想还真是怀念 .</p>
+<p>阅读文档 <a href="https://uniapp.dcloud.io/quickstart" target="_blank" rel="noopener">快速上手</a> 就可以轻松的写出 hello wordl </p>
+<p>文档还有很多 开源项目资源(demo) 可以学习 , 虽然还会有对陌生的敬畏 , 但最起码还有挑战的勇气.</p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>调试安卓的话,我是用夜神模拟器,轻松配置一下,就可以链接 IDE 进行开发调试</p>
+<p>微信小程序开发工具</p>
+<p>Chrome</p>
+<p>在 window 貌似不能调试 IOS 吧 ?</p>
+<p>在调试上有一个坑:  每次修改 page.vue 中的节点以后 保存后不会直接生效，你得点重新运行（控制台右上角有一个类似刷新的图标）</p>
+<h2 id="已经遇到的坑"><a href="#已经遇到的坑" class="headerlink" title="已经遇到的坑"></a>已经遇到的坑</h2><ul>
+<li>支持安装mpvue组件，不支持直接使用vue组件和小程序自定义组件</li>
+<li>支持安装js模块，安装的模块及其依赖的模块使用的API必须是uni-app已有的API（兼容小程序API），比如：支持高德地图微信小程序SDK，不支持jQuery 。</li>
+<li>使用官方组件 icon 图标显示不出来,明天再调试一下 o(╥﹏╥)o</li>
+<li>每次热更新编译比较慢,毕竟同时更新 Chrome 微信开发工具 安卓模拟器</li>
+</ul>
+<h1 id="Vue-nextTick"><a href="#Vue-nextTick" class="headerlink" title="Vue.nextTick"></a>Vue.nextTick</h1><blockquote>
+<p>以下内容来源于:<a href="https://segmentfault.com/a/1190000012861862" target="_blank" rel="noopener">Vue.nextTick 的原理和用途</a></p>
+</blockquote>
+<ul>
+<li>用法:</li>
+</ul>
+<p>在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="异步说明"><a href="#异步说明" class="headerlink" title="异步说明"></a>异步说明</h3><blockquote>
+<p>Vue 实现响应式并不是数据发生变化之后 DOM 立即变化，而是按一定的策略进行 DOM 的更新。</p>
+</blockquote>
+<p>在 Vue 的文档中，说明 Vue 是异步执行 DOM 更新的。关于异步的解析，可以查看阮一峰老师的这篇文章。截取关键部分如下：</p>
+<blockquote>
+<p>（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。</p>
+</blockquote>
+<blockquote>
+<p>（2）主线程之外，还存在一个”任务队列”（task queue）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。</p>
+</blockquote>
+<blockquote>
+<p>（3）一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</p>
+</blockquote>
+<blockquote>
+<p>（4）主线程不断重复上面的第三步。</p>
+</blockquote>
+<h3 id="事件循环说明"><a href="#事件循环说明" class="headerlink" title="事件循环说明"></a>事件循环说明</h3><p>简单来说，Vue 在修改数据后，视图不会立刻更新，而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新。</p>
+<div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/12-26-1.png" width> </div>
+
+<p>知乎上的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//改变数据</span><br><span class="line">vm.message = &apos;changed&apos;</span><br><span class="line"></span><br><span class="line">//想要立即使用更新后的DOM。这样不行，因为设置message后DOM还没有更新</span><br><span class="line">console.log(vm.$el.textContent) // 并不会得到&apos;changed&apos;</span><br><span class="line"></span><br><span class="line">//这样可以，nextTick里面的代码会在DOM更新后执行</span><br><span class="line">Vue.nextTick(function()&#123;</span><br><span class="line">    console.log(vm.$el.textContent) //可以得到&apos;changed&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>事件循环：</p>
+</blockquote>
+<p>第一个 tick（图例中第一个步骤，即’本次更新循环’）：</p>
+<ul>
+<li><p>首先修改数据，这是同步任务。同一事件循环的所有的同步任务都在主线程上执行，形成一个执行栈，此时还未涉及 DOM 。</p>
+</li>
+<li><p>Vue 开启一个异步队列，并缓冲在此事件循环中发生的所有数据改变。如果同一个 watcher 被多次触发，只会被推入到队列中一次。</p>
+</li>
+</ul>
+<p>第二个 tick（图例中第二个步骤，即’下次更新循环’）：</p>
+<p>同步任务执行完毕，开始执行异步 watcher 队列的任务，更新 DOM 。Vue 在内部尝试对异步队列使用原生的 Promise.then 和 MessageChannel 方法，如果执行环境不支持，会采用 setTimeout(fn, 0) 代替。</p>
+<p>第三个 tick（图例中第三个步骤）：</p>
+<p>此时就是文档所说的</p>
+<blockquote>
+<p>下次 DOM 更新循环结束之后</p>
+</blockquote>
+<p>此时通过 Vue.nextTick 获取到改变后的 DOM 。通过 setTimeout(fn, 0) 也可以同样获取到。</p>
+<hr>
+<p>简单总结事件循环：</p>
+<p>同步代码执行 -&gt; 查找异步队列，推入执行栈，执行Vue.nextTick[事件循环1] -&gt;查找异步队列，推入执行栈，执行Vue.nextTick[事件循环2]…</p>
+<p>总之，异步是单独的一个tick，不会和同步在一个 tick 里发生，也是 DOM 不会马上改变的原因。</p>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><blockquote>
+<p>应用场景：需要在视图更新之后，基于新的视图进行操作。</p>
+</blockquote>
+<h3 id="created、mounted"><a href="#created、mounted" class="headerlink" title="created、mounted"></a>created、mounted</h3><p>需要注意的是，在 created 和 mounted 阶段，如果需要操作渲染后的试图，也要使用 nextTick 方法。</p>
+<p>官方文档说明：</p>
+<blockquote>
+<p>注意 mounted 不会承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 vm.$nextTick 替换掉 mounted</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mounted: function () &#123;</span><br><span class="line">  this.$nextTick(function () &#123;</span><br><span class="line">    // Code that will run only after the</span><br><span class="line">    // entire view has been rendered</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="其他应用场景"><a href="#其他应用场景" class="headerlink" title="其他应用场景"></a>其他应用场景</h3><p>其他应用场景如下三例：</p>
+<p>例子1：</p>
+<p>点击按钮显示原本以 v-show = false 隐藏起来的输入框，并获取焦点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">showsou()&#123;</span><br><span class="line">  <span class="keyword">this</span>.showit = <span class="literal">true</span> <span class="comment">//修改 v-show</span></span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">"keywords"</span>).focus()  <span class="comment">//在第一个 tick 里，获取不到输入框，自然也获取不到焦点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">showsou()&#123;</span><br><span class="line">  <span class="keyword">this</span>.showit = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// DOM 更新了</span></span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"keywords"</span>).focus()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子2：</p>
+<p>点击获取元素宽度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p ref=&quot;myWidth&quot; v-if=&quot;showMe&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button @click=&quot;getMyWidth&quot;&gt;获取p元素宽度&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">getMyWidth() &#123;</span><br><span class="line">    this.showMe = true;</span><br><span class="line">    //this.message = this.$refs.myWidth.offsetWidth;</span><br><span class="line">    //报错 TypeError: this.$refs.myWidth is undefined</span><br><span class="line">    this.$nextTick(()=&gt;&#123;</span><br><span class="line">        //dom元素更新后执行，此时能拿到p元素的属性</span><br><span class="line">        this.message = this.$refs.myWidth.offsetWidth;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子3：</p>
+<p>使用 swiper 插件通过 ajax 请求图片后的滑动问题。</p>
+<h3 id="实例理解-nextTick-应用"><a href="#实例理解-nextTick-应用" class="headerlink" title="实例理解 nextTick 应用"></a>实例理解 nextTick 应用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li class=&quot;example&quot; v-for=&quot;item in list1&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li class=&quot;example&quot; v-for=&quot;item in list2&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;ol&gt;</span><br><span class="line">            &lt;li class=&quot;example&quot; v-for=&quot;item in list3&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ol&gt;</span><br><span class="line">        &lt;ol&gt;</span><br><span class="line">            &lt;li class=&quot;example&quot; v-for=&quot;item in list4&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ol&gt;</span><br><span class="line">        &lt;ol&gt;</span><br><span class="line">            &lt;li class=&quot;example&quot; v-for=&quot;item in list5&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ol&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            list1: [],</span><br><span class="line">            list2: [],</span><br><span class="line">            list3: [],</span><br><span class="line">            list4: [],</span><br><span class="line">            list5: []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created() &#123;</span><br><span class="line">        this.composeList12()</span><br><span class="line">        this.composeList34()</span><br><span class="line">        this.composeList5()</span><br><span class="line">        this.$nextTick(function() &#123;</span><br><span class="line">            // DOM 更新了</span><br><span class="line">            console.log(&apos;finished test &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        composeList12() &#123;</span><br><span class="line">            let me = this</span><br><span class="line">            let count = 10000</span><br><span class="line"></span><br><span class="line">            for (let i = 0; i &lt; count; i++) &#123;</span><br><span class="line">                this.$set(me.list1, i, &apos;I am a 测试信息～～啦啦啦&apos; + i)</span><br><span class="line">            &#125;</span><br><span class="line">            console.log(&apos;finished list1 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line"></span><br><span class="line">            for (let i = 0; i &lt; count; i++) &#123;</span><br><span class="line">                this.$set(me.list2, i, &apos;I am a 测试信息～～啦啦啦&apos; + i)</span><br><span class="line">            &#125;</span><br><span class="line">            console.log(&apos;finished list2 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line"></span><br><span class="line">            this.$nextTick(function() &#123;</span><br><span class="line">                // DOM 更新了</span><br><span class="line">                console.log(&apos;finished tick1&amp;2 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        composeList34() &#123;</span><br><span class="line">            let me = this</span><br><span class="line">            let count = 10000</span><br><span class="line"></span><br><span class="line">            for (let i = 0; i &lt; count; i++) &#123;</span><br><span class="line">                this.$set(me.list3, i, &apos;I am a 测试信息～～啦啦啦&apos; + i)</span><br><span class="line">            &#125;</span><br><span class="line">            console.log(&apos;finished list3 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line"></span><br><span class="line">            this.$nextTick(function() &#123;</span><br><span class="line">                // DOM 更新了</span><br><span class="line">                console.log(&apos;finished tick3 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            setTimeout(me.setTimeout1, 0)</span><br><span class="line">        &#125;,</span><br><span class="line">        setTimeout1() &#123;</span><br><span class="line">            let me = this</span><br><span class="line">            let count = 10000</span><br><span class="line"></span><br><span class="line">            for (let i = 0; i &lt; count; i++) &#123;</span><br><span class="line">                this.$set(me.list4, i, &apos;I am a 测试信息～～啦啦啦&apos; + i)</span><br><span class="line">            &#125;</span><br><span class="line">            console.log(&apos;finished list4 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line"></span><br><span class="line">            me.$nextTick(function() &#123;</span><br><span class="line">                // DOM 更新了</span><br><span class="line">                console.log(&apos;finished tick4 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        composeList5() &#123;</span><br><span class="line">            let me = this</span><br><span class="line">            let count = 10000</span><br><span class="line"></span><br><span class="line">            this.$nextTick(function() &#123;</span><br><span class="line">                // DOM 更新了</span><br><span class="line">                console.log(&apos;finished tick5-1 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            setTimeout(me.setTimeout2, 0)</span><br><span class="line">        &#125;,</span><br><span class="line">        setTimeout2() &#123;</span><br><span class="line">            let me = this</span><br><span class="line">            let count = 10000</span><br><span class="line"></span><br><span class="line">            for (let i = 0; i &lt; count; i++) &#123;</span><br><span class="line">                this.$set(me.list5, i, &apos;I am a 测试信息～～啦啦啦&apos; + i)</span><br><span class="line">            &#125;</span><br><span class="line">            console.log(&apos;finished list5 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line"></span><br><span class="line">            me.$nextTick(function() &#123;</span><br><span class="line">                // DOM 更新了</span><br><span class="line">                console.log(&apos;finished tick5 &apos; + new Date().toString(),document.querySelectorAll(&apos;.example&apos;).length)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/12-26-2.png" width> </div>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/25/小程序使用插件/" rel="next" title="小程序使用插件">
+                <i class="fa fa-chevron-left"></i> 小程序使用插件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/28/uni-app-二/" rel="prev" title="uni-app(二)">
+                uni-app(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/12/26/uni-app、vue-nextTick/" data-title="uni-app、vue.nextTick" data-url="http://yoursite.com/2018/12/26/uni-app、vue-nextTick/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="Bin,">
+            
+              <p class="site-author-name" itemprop="name">Bin,</p>
+              <p class="site-description motion-element" itemprop="description">仰望星空，脚踏实地</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CourteousBin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:904343016@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#uni-app"><span class="nav-number">1.</span> <span class="nav-text">uni-app</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-world"><span class="nav-number">1.1.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">1.2.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已经遇到的坑"><span class="nav-number">1.3.</span> <span class="nav-text">已经遇到的坑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-nextTick"><span class="nav-number">2.</span> <span class="nav-text">Vue.nextTick</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步说明"><span class="nav-number">2.1.1.</span> <span class="nav-text">异步说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件循环说明"><span class="nav-number">2.1.2.</span> <span class="nav-text">事件循环说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用途"><span class="nav-number">2.2.</span> <span class="nav-text">用途</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#created、mounted"><span class="nav-number">2.2.1.</span> <span class="nav-text">created、mounted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他应用场景"><span class="nav-number">2.2.2.</span> <span class="nav-text">其他应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例理解-nextTick-应用"><span class="nav-number">2.2.3.</span> <span class="nav-text">实例理解 nextTick 应用</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bin,</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

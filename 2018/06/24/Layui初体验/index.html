@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工作,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CourteousBin" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="因为新项目，我们需要重新写一个后台管理系统。在选择前端框架时候，意外的看到一款模块化的前端框架，这让我毫无模块化经验的前端产生了浓厚的兴趣。">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Layui初体验">
+<meta property="og:url" content="http://yoursite.com/2018/06/24/Layui初体验/index.html">
+<meta property="og:site_name" content="CourteousBin">
+<meta property="og:description" content="因为新项目，我们需要重新写一个后台管理系统。在选择前端框架时候，意外的看到一款模块化的前端框架，这让我毫无模块化经验的前端产生了浓厚的兴趣。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-24T12:08:33.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Layui初体验">
+<meta name="twitter:description" content="因为新项目，我们需要重新写一个后台管理系统。在选择前端框架时候，意外的看到一款模块化的前端框架，这让我毫无模块化经验的前端产生了浓厚的兴趣。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/24/Layui初体验/">
+
+
+
+
+
+  <title>Layui初体验 | CourteousBin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CourteousBin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Layui初体验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bin,">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CourteousBin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Layui初体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T18:38:02+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/24/Layui初体验/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/24/Layui初体验/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  因为新项目，我们需要重新写一个后台管理系统。在选择前端框架时候，意外的看到一款模块化的前端框架，这让我毫无模块化经验的前端产生了浓厚的兴趣。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Layui"><a href="#Layui" class="headerlink" title="Layui"></a>Layui</h1><blockquote>
+<p>layui 是一款采用自身模块规范编写的情怀型前端UI框架，遵循原生HTML/CSS/JS的书写与组织形式，门槛极低，拿来即用。其外在极简，却又不失饱满的内在，体积轻盈，组件丰盈，从核心代码到API的每一处细节都经过精心雕琢，非常适合界面的快速开发。layui 首个版本发布于2016年金秋，她区别于那些基于MVVM底层的UI框架，却并非逆道而行，而是信奉返璞归真之道。准确地说，她更多是为服务端程序员量身定做，你无需涉足各种前端工具的复杂配置，只需面对浏览器本身，让一切你所需要的元素与交互，从这里信手拈来。</p>
+</blockquote>
+<p><strong><a href="http://www.layui.com/" target="_blank" rel="noopener">Layui 官网</a></strong></p>
+<p><strong><a href="https://github.com/sentsin/layui/" target="_blank" rel="noopener">Layui GitHub</a></strong></p>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><h4 id="经典，因返璞归真"><a href="#经典，因返璞归真" class="headerlink" title="经典，因返璞归真"></a>经典，因返璞归真</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//layui模块的定义</span></span><br><span class="line">layui.define([mods], <span class="function"><span class="keyword">function</span>(<span class="params">exports</span>)</span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//……</span></span><br><span class="line">  </span><br><span class="line">  exports(<span class="string">'mod'</span>, api);</span><br><span class="line">&#125;);  </span><br><span class="line"> </span><br><span class="line"><span class="comment">//layui模块的使用</span></span><br><span class="line">layui.use([<span class="string">'mod1'</span>, <span class="string">'mod2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">args</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> mod = layui.mod1;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//……</span></span><br><span class="line">  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="模块化时候方法-推荐"><a href="#模块化时候方法-推荐" class="headerlink" title="模块化时候方法(推荐)"></a>模块化时候方法(推荐)</h4><p>我们推荐你遵循 layui 的模块规范建立一个入口文件，并通过 layui.use() 方式来加载该入口文件，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">layui.config(&#123;</span><br><span class="line">  base: <span class="string">'/res/js/modules/'</span> <span class="comment">//你存放新模块的目录，注意，不是layui的模块目录</span></span><br><span class="line">&#125;).use(<span class="string">'index'</span>); <span class="comment">//加载入口</span></span><br></pre></td></tr></table></figure>
+<p>上述的 index 即为你 /res/js/modules/ 目录下的 index.js，它的内容应该如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">layui.define([<span class="string">'layer'</span>, <span class="string">'form'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">exports</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> layer = layui.layer</span><br><span class="line">  ,form = layui.form;</span><br><span class="line">  </span><br><span class="line">  layer.msg(<span class="string">'Hello World'</span>);</span><br><span class="line">  </span><br><span class="line">  exports(<span class="string">'index'</span>, &#123;&#125;); <span class="comment">//注意，这里是模块输出的核心，模块名必须和use时的模块名一致</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="加载所需要的模块"><a href="#加载所需要的模块" class="headerlink" title="加载所需要的模块"></a>加载所需要的模块</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">layui.use([<span class="string">'laypage'</span>, <span class="string">'layedit'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> laypage = layui.laypage</span><br><span class="line">  ,layedit = layui.layedit;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h2><h3 id="弹出层"><a href="#弹出层" class="headerlink" title="弹出层"></a>弹出层</h3><p>弹框与提示是每个后台管理系统必备的，所以要运用到 <code>弹出层</code> 。</p>
+<p><code>Layui</code> 的弹出层比较美观耐看,再加上模块化开发,灵巧与轻便，与 <code>bootstrap</code> 比简便很多。</p>
+<p><strong>模块化使用弹出层</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">layui.use(<span class="string">'layer'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> layer = layui.layer;</span><br><span class="line">  </span><br><span class="line">  layer.msg(<span class="string">'hello'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在文档中，每个属性如何使用都作了说明，详细，请看 <strong><a href="http://www.layui.com/doc/modules/layer.html" target="_blank" rel="noopener">文档</a></strong>。</p>
+<h3 id="表单-form"><a href="#表单-form" class="headerlink" title="表单(form)"></a>表单(form)</h3><p>表单验证，是前端绕不开的话题，巧合的是 <code>layui</code> 也有 <code>form</code> 模块，而 <code>form</code> 模块，也不仅仅作用于表单验证。还包括：更新渲染、事件监听、与表单赋值。</p>
+<p>而在这个项目中，要运用到表单验证。</p>
+<p><strong>表单验证有两种方法，预设验证与自定义验证。</strong></p>
+<ol>
+<li>预设元素属性</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th style="text-align:center">属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lay-verify</td>
+<td style="text-align:center">required（必填项）phone（手机号）email（邮箱）url（网址）number（数字）date（日期）identity（身份证）自定义值</td>
+<td>同时支持多条规则的验证 lay-verify=”required\</td>
+<td>phone\</td>
+<td>number”</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>自定义验证</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">form.verify(&#123;</span><br><span class="line">  username: <span class="function"><span class="keyword">function</span>(<span class="params">value, item</span>)</span>&#123; <span class="comment">//value：表单的值、item：表单的DOM对象</span></span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$"</span>).test(value))&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'用户名不能有特殊字符'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/(^\_)|(\__)|(\_+$)/</span>.test(value))&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'用户名首尾不能出现下划线\'_\''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/^\d+\d+\d$/</span>.test(value))&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'用户名不能全为数字'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//我们既支持上述函数式的方式，也支持下述数组的形式</span></span><br><span class="line">  <span class="comment">//数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]</span></span><br><span class="line">  ,<span class="attr">pass</span>: [</span><br><span class="line">    /^[\S]&#123;<span class="number">6</span>,<span class="number">12</span>&#125;$/</span><br><span class="line">    ,<span class="string">'密码必须6到12位，且不能出现空格'</span></span><br><span class="line">  ] </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当你自定义了类似上面的验证规则后，你只需要把 key 赋值给输入框的 lay-verify 属性即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">lay-verify</span>=<span class="string">"username"</span> <span class="attr">placeholder</span>=<span class="string">"请输入用户名"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">lay-verify</span>=<span class="string">"pass"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>踩坑</strong></p>
+<p>项目中，使用了预设元素验证，但是点击提交并没有反应。</p>
+<p>原来，要在点击按钮里设置两个属性</p>
+<p><code>lay-submit</code> 与 <code>lay-filter</code></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th style="text-align:center">属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lay-filter</td>
+<td style="text-align:center">任意字符</td>
+<td>事件过滤器，主要用于事件的精确匹配，跟选择器是比较类似的。</td>
+</tr>
+<tr>
+<td>lay-submit</td>
+<td style="text-align:center">无需填写值</td>
+<td>绑定触发提交的元素，如button</td>
+</tr>
+</tbody>
+</table>
+<p>事例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userName"</span> <span class="attr">lay-verify</span>=<span class="string">"required"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">lay-submit</span> <span class="attr">lay-filter</span>=<span class="string">"post"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 引用模块</span></span><br><span class="line"> layui.use([<span class="string">'layer'</span>, <span class="string">'form'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> layer = layui.layer;</span><br><span class="line">  <span class="keyword">var</span> form = layui.form;</span><br><span class="line"></span><br><span class="line">  form.on(<span class="string">'submit(post)'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">    <span class="built_in">console</span>.log(data.elem) <span class="comment">//被执行事件的元素DOM对象，一般为button对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(data.form) <span class="comment">//被执行提交的form对象，一般在存在form标签时才会返回</span></span><br><span class="line">    <span class="built_in">console</span>.log(data.field) <span class="comment">//当前容器的全部表单字段，名值对形式：&#123;name: value&#125;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//阻止表单跳转。如果需要表单跳转，去掉这段即可。</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上就是 <code>layui</code> 小小的体验，如果在项目中，更多用法，我也会依次记录到博客。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/22/JavaScript代码风格指南/" rel="next" title="JavaScript代码风格指南">
+                <i class="fa fa-chevron-left"></i> JavaScript代码风格指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/25/this作用域感悟/" rel="prev" title="this作用域感悟">
+                this作用域感悟 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/06/24/Layui初体验/" data-title="Layui初体验" data-url="http://yoursite.com/2018/06/24/Layui初体验/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="Bin,">
+            
+              <p class="site-author-name" itemprop="name">Bin,</p>
+              <p class="site-description motion-element" itemprop="description">仰望星空，脚踏实地</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CourteousBin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:904343016@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Layui"><span class="nav-number">1.</span> <span class="nav-text">Layui</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">1.1.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#经典，因返璞归真"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">经典，因返璞归真</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化时候方法-推荐"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">模块化时候方法(推荐)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载所需要的模块"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">加载所需要的模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置模块"><span class="nav-number">1.2.</span> <span class="nav-text">内置模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出层"><span class="nav-number">1.2.1.</span> <span class="nav-text">弹出层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单-form"><span class="nav-number">1.2.2.</span> <span class="nav-text">表单(form)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bin,</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

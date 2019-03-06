@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工作,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CourteousBin" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="记录工作上遇到的问题">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&amp;#65279、小程序外部icon">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/65279、小程序外部icon/index.html">
+<meta property="og:site_name" content="CourteousBin">
+<meta property="og:description" content="记录工作上遇到的问题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-6.png">
+<meta property="og:updated_time" content="2018-11-27T13:59:41.849Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&amp;#65279、小程序外部icon">
+<meta name="twitter:description" content="记录工作上遇到的问题">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/27/65279、小程序外部icon/">
+
+
+
+
+
+  <title>&#65279、小程序外部icon | CourteousBin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CourteousBin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/65279、小程序外部icon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bin,">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CourteousBin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">&#65279、小程序外部icon</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T20:06:29+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/27/65279、小程序外部icon/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/11/27/65279、小程序外部icon/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  记录工作上遇到的问题
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#2018-11-27</p>
+<h2 id="UTF-8-BOM"><a href="#UTF-8-BOM" class="headerlink" title="UTF-8 BOM"></a>UTF-8 BOM</h2><p>最近在做一个项目的前端页面的时候，好几个页面都出现顶部莫名多出一定高度的空白，查看自己写的样式又没有添加这样的样式。查看审查元素的时候发现多出一个<code>&amp;#65279</code>这样的编码，仔细看自己做的页面中又没有这样的一行，怎么解决这个问题？</p>
+<p>经过多方查询，原来是我们保存页面的时候保存成了 <code>UTF-8</code> + <code>BOM</code> 编码方式，PHP不会忽略 <code>BOM</code>,会把它显示出来。知道原因后我们就知道怎么解决了。</p>
+<p>用的编辑器中保存为 <code>UTF-8</code> 的格式 <code>&amp;#65279</code> 就消失了。</p>
+<p><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-1.jpg" width> </div><br></p>
+<h3 id="UTF-8有BOM和无BOM的区别"><a href="#UTF-8有BOM和无BOM的区别" class="headerlink" title="UTF-8有BOM和无BOM的区别"></a>UTF-8有BOM和无BOM的区别</h3><p><strong>在网页上使用BOM是个错误。</strong></p>
+<p>BOM设计出来不是用来支持HTML和XML的。要识别文本编码，HTML有charset属性，XML有encoding属性，没必要拉BOM撑场面。</p>
+<p>虽然理论上BOM可以用来识别UTF-16编码的HTML页面，但实际工程上很少有人这么干。</p>
+<p>毕竟UTF-16这种编码连ASCII都双字节，实在不适用于做网页。</p>
+<p>在 UTF-8 文件中放置 BOM 主要是微软的习惯</p>
+<p>UTF-8不需要BOM, 所以不含BOM的UTF-8才是标准形式.</p>
+<p>微软在 UTF-8 中使用 BOM 是因为这样可以把 UTF-8 和 ASCII 等编码明确区分开</p>
+<p>「UTF-8」和「带 BOM 的 UTF-8」的区别就是有没有 BOM。即文件开头有没有 U+FEFF。</p>
+<p>在 PHP 中除了会留 <code>&amp;#65279</code> (空白) 还会出现一些有趣的问题。</p>
+<p><strong>为什么这个网页代码 head 内的信息会被浏览器理解为在 body 内？</strong></p>
+<p>head 嵌套错误是因为整个 HTML 文档的最开头多了一个看不见的 U+FEFF（就在「!DOCTYPE」前面），它污染了 HTML。U+FEFF 就是我们常说的「BOM」，UTF-8 编码的文件不需要它。<br>Windows 该死的记事本有个臭名昭著的破毛病就是在 UTF-8 文件开头加 BOM，所以不要用记事本来编辑文件。</p>
+<h2 id="微信小程序——wxss引用iconfont"><a href="#微信小程序——wxss引用iconfont" class="headerlink" title="微信小程序——wxss引用iconfont"></a>微信小程序——wxss引用iconfont</h2><p><strong>小程序引入外部文件的方式是：@import “/.wxss”;</strong></p>
+<p>小程序的wxss文件font-face的url不接受http地址作为参数,可以接受base64,因此可以先将字体文件下载后,转换为base64，然后引用。 </p>
+<p>步骤:</p>
+<ol>
+<li><p>先去 <a href="http://www.iconfont.cn/" target="_blank" rel="noopener">Iconfont-阿里巴巴矢量图标库</a> 找到 <code>icon</code></p>
+</li>
+<li><p>下载并解压，打开 <code>iconfont.css</code> 文件<br><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-2.png" width> </div><br></p>
+</li>
+<li>只保留 <code>base64</code> 格式的 <code>icon</code><br><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-3.png" width> </div><br></li>
+<li>复制到 wxss<br><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-4.png" width> </div><br><br><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-5.png" width> </div><br></li>
+<li>使用<br><div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/11-27-6.png" width> </div><br></li>
+</ol>
+<h2 id="小说章节数据库设计"><a href="#小说章节数据库设计" class="headerlink" title="小说章节数据库设计"></a>小说章节数据库设计</h2><p>按照工作计划，我可能会去做类似在线阅读的功能。</p>
+<p>包含功能：免费章节在线阅读，收费章节，购买书本等。</p>
+<p>脑补章节的sql：</p>
+<p>表如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">基本信息表（小说ID，书名，简介，作者，分类，状态，。。。）</span><br><span class="line"></span><br><span class="line">分卷信息表（卷ID，小说ID，卷名，。。）</span><br><span class="line"></span><br><span class="line">分节信息表（节ID，卷ID，节名，文章内容，字数，日期，状态，。。。。）</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>脑补逻辑<ul>
+<li>图书<ul>
+<li>是否免费<ul>
+<li>是: 标签 为免费</li>
+<li>否:跳转到购买页面<ul>
+<li>购买了是在个人表中 , 新建一个购买图书字段 , 并把图书id加入进去?</li>
+<li>图书可能删除吗</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>图书标签<ul>
+<li>免费标签</li>
+<li>自定义的标签?</li>
+</ul>
+</li>
+<li>购买<ul>
+<li>是否会员<ul>
+<li>是:会员价打折购买</li>
+<li>否:购买图书</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>章节设计<ul>
+<li>是否有免费试读章节</li>
+<li>付费章节(需要购买)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="前端基础算法"><a href="#前端基础算法" class="headerlink" title="前端基础算法"></a>前端基础算法</h2><ol>
+<li>判断是否回文<ul>
+<li>split()<ul>
+<li>拆分字符串 , 把字符串转换成数组 split(‘’) 每个字符串 , 隔开</li>
+</ul>
+</li>
+<li>reverse()<ul>
+<li>数组倒叙</li>
+</ul>
+</li>
+<li>join()<ul>
+<li>split()逆向方法, 将数组合并成字符串 返回一个新字符串<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPalindrome1</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 允许输入字符串和数字和布尔值</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> val !== <span class="string">'string'</span>) val = val.toString();</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">let</span> newVal = val.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> val === newVal;</span><br><span class="line">&#125;</span><br><span class="line">isPalindrome1(<span class="number">121</span>) <span class="comment">// true</span></span><br><span class="line">isPalindrome1(<span class="string">'yuzuy'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>charAt()<ul>
+<li>charAt() 方法可返回指定位置的字符。</li>
+<li>var str=”Hello world!”</li>
+<li>str.charAt(0) -&gt; H</li>
+<li>str.charAt(1) -&gt; e</li>
+<li>str.charAt(2) -&gt; l</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 判断文字是否为回文</span></span><br><span class="line"><span class="comment">* @param &#123;string|number&#125; val 需要判断的文字</span></span><br><span class="line"><span class="comment">* @return &#123;boolean&#125; bool 是否为回文 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPalindrome2</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    val = val + <span class="string">''</span>; <span class="comment">// 非字符串转化为字符串</span></span><br><span class="line">    <span class="comment">// 这里为什么 i &lt;= j 呢？如果中间只有一个字符，是不需要比较的，它肯定等于它本身！！！</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, j = val.length - <span class="number">1</span>; i &lt; j; i++, j--)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 最前面和最后面比较</span></span><br><span class="line">        <span class="comment">// 如果中间只有一个字符，是不需要比较的</span></span><br><span class="line">        <span class="keyword">if</span>(val.charAt(i) !== val.charAt(j))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">isPalindrome2(<span class="number">12321</span>) <span class="comment">// true</span></span><br><span class="line">isPalindrome2(<span class="string">'yuzuy'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>翻转字符串</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 反转字符串</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseVal1</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    val = val+<span class="string">''</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> val.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bin =  reverseVal1(<span class="string">'bin'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 反转字符串</span></span><br><span class="line"><span class="comment">* @param &#123;string&#125; val 需要反转的字符串</span></span><br><span class="line"><span class="comment">* @return &#123;string&#125; str 反转后的字符串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverseVal2</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    val = val+<span class="string">''</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">''</span>,</span><br><span class="line">        i = <span class="number">0</span>,</span><br><span class="line">        len = val.length;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; len)&#123;</span><br><span class="line"></span><br><span class="line">        str += val.charAt(len - <span class="number">1</span> - i);</span><br><span class="line"></span><br><span class="line">        i++; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bin =  reverseVal2(<span class="string">'bin'</span>);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_reverseVal</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">    val = val+<span class="string">''</span>;</span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,j = val.length<span class="number">-1</span>;i &lt;= j;i++)&#123;</span><br><span class="line">        str += val.charAt(j - i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;   </span><br><span class="line"><span class="keyword">var</span> bin = my_reverseVal(<span class="string">'bin'</span>);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>阶乘</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 阶乘</span></span><br><span class="line"><span class="comment">* @param &#123;number&#125; n 需要求的阶乘</span></span><br><span class="line"><span class="comment">* @return &#123;number&#125; 阶乘值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorialize1</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> n !== <span class="string">'number'</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'参数必须为整整'</span>)</span><br><span class="line">    <span class="keyword">if</span>(n === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 建议不要使用 arguments.callee，目前已经废弃了。</span></span><br><span class="line">    <span class="keyword">return</span> n * factorialize1(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = factorialize1(<span class="number">10</span>); <span class="comment">// 3628800</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 阶乘</span></span><br><span class="line"><span class="comment">* @param &#123;number&#125; n 需要求的阶乘</span></span><br><span class="line"><span class="comment">* @return &#123;number&#125; 阶乘值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorialize2</span>(<span class="params">n, total = <span class="number">1</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> n !== <span class="string">'number'</span> || <span class="keyword">typeof</span> total !== <span class="string">'number'</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'参数必须为整整'</span>)</span><br><span class="line">    <span class="keyword">if</span>(n === <span class="number">1</span>) <span class="keyword">return</span> total;</span><br><span class="line">    <span class="keyword">return</span> factorialize2(n - <span class="number">1</span>, n * total)</span><br><span class="line">    <span class="comment">// f(3) =&gt; f(2, 3 * 2) =&gt; f(1, 6) =&gt; 6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PS：<a href="http://es6.ruanyifeng.com/#docs/function#%E5%B0%BE%E8%B0%83%E7%94%A8%E4%BC%98%E5%8C%96" target="_blank" rel="noopener">ES6尾调用优化</a>但对于尾递归来说，由于只存在一个调用帧，所以永远不会发生“栈溢出”错误。</p>
+<p>尾调用（Tail Call）是函数式编程的一个重要概念，本身非常简单，一句话就能说清楚，就是指某个函数的最后一步是调用另一个函数。</p>
+<p>注意，只有不再用到外层函数的内部变量，内层函数的调用帧才会取代外层函数的调用帧，否则就无法进行“尾调用优化”。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/jsonp、promise/" rel="next" title="jsonp、promise">
+                <i class="fa fa-chevron-left"></i> jsonp、promise
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/28/基本算法/" rel="prev" title="基本算法">
+                基本算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/11/27/65279、小程序外部icon/" data-title="&#65279、小程序外部icon" data-url="http://yoursite.com/2018/11/27/65279、小程序外部icon/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="Bin,">
+            
+              <p class="site-author-name" itemprop="name">Bin,</p>
+              <p class="site-description motion-element" itemprop="description">仰望星空，脚踏实地</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CourteousBin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:904343016@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UTF-8-BOM"><span class="nav-number">1.</span> <span class="nav-text">UTF-8 BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UTF-8有BOM和无BOM的区别"><span class="nav-number">1.1.</span> <span class="nav-text">UTF-8有BOM和无BOM的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信小程序——wxss引用iconfont"><span class="nav-number">2.</span> <span class="nav-text">微信小程序——wxss引用iconfont</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小说章节数据库设计"><span class="nav-number">3.</span> <span class="nav-text">小说章节数据库设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端基础算法"><span class="nav-number">4.</span> <span class="nav-text">前端基础算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bin,</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

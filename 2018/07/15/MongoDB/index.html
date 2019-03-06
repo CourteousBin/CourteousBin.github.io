@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工作,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CourteousBin" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="MongoDB，非关系型数据库，与MySQL有何区别？关系型数据库与非关系型数据库有何区别？">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB">
+<meta property="og:url" content="http://yoursite.com/2018/07/15/MongoDB/index.html">
+<meta property="og:site_name" content="CourteousBin">
+<meta property="og:description" content="MongoDB，非关系型数据库，与MySQL有何区别？关系型数据库与非关系型数据库有何区别？">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-3.png">
+<meta property="og:updated_time" content="2018-07-15T13:35:41.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MongoDB">
+<meta name="twitter:description" content="MongoDB，非关系型数据库，与MySQL有何区别？关系型数据库与非关系型数据库有何区别？">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-4.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/15/MongoDB/">
+
+
+
+
+
+  <title>MongoDB | CourteousBin</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CourteousBin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bin,">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CourteousBin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MongoDB</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T20:52:10+08:00">
+                2018-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/15/MongoDB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/15/MongoDB/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  MongoDB，非关系型数据库，与MySQL有何区别？关系型数据库与非关系型数据库有何区别？
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。</p>
+<p>MongoDB 是一个介于关系数据库和非关系数据库之间的产品，<strong>是非关系数据库当中功能最丰富，最像关系数据库的</strong>。</p>
+<p>它支持的数据结构非常松散，是类似json的bson格式，因此可以存储比较复杂的数据类型。</p>
+<p>Mongo最大的特点是它支持的查询语言非常强大，其语法有点类似于面向对象的查询语言，几乎可以实现类似关系数据库单表查询的绝大部分功能，而且还支持对数据建立索引。</p>
+<h3 id="非关系型数据库简介"><a href="#非关系型数据库简介" class="headerlink" title="非关系型数据库简介"></a>非关系型数据库简介</h3><p><strong>NoSQL(NoSQL = Not Only SQL )，意即”不仅仅是SQL”。</strong></p>
+<p>NoSQL，指的是非关系型的数据库。NoSQL有时也称作Not Only SQL的缩写，是对不同于传统的关系型数据库的数据库管理系统的统称。</p>
+<p>非关系型数据库是基于 CAP 模型</p>
+<h4 id="CAP模型"><a href="#CAP模型" class="headerlink" title="CAP模型"></a>CAP模型</h4><p>在计算机科学中, CAP定理（CAP theorem）, 又被称作 布鲁尔定理（Brewer’s theorem）, 它指出对于一个分布式计算系统来说，<strong>不可能同时满足以下三点</strong>:</p>
+<ul>
+<li>一致性(Consistency) (所有节点在同一时间具有相同的数据)</li>
+<li>可用性(Availability) (保证每个请求不管成功或者失败都有响应)</li>
+<li>分隔容忍(Partition tolerance) (系统中任意信息的丢失或失败不会影响系统的继续运作)</li>
+</ul>
+<p>CAP理论的核心是：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求，最多只能同时较好的满足两个。</p>
+<p>因此，根据 CAP 原理将 NoSQL 数据库分成了满足 CA 原则、满足 CP 原则和满足 AP 原则三 大类：</p>
+<ul>
+<li>CA - 单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大。</li>
+<li>CP - 满足一致性，分区容忍性的系统，通常性能不是特别高。</li>
+<li>AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。</li>
+</ul>
+<h4 id="NoSQL的优点-缺点"><a href="#NoSQL的优点-缺点" class="headerlink" title="NoSQL的优点/缺点"></a>NoSQL的优点/缺点</h4><p>优点:</p>
+<ul>
+<li>高可扩展性</li>
+<li>分布式计算</li>
+<li>低成本</li>
+<li>架构的灵活性，半结构化数据</li>
+<li>没有复杂的关系</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>没有标准化</li>
+<li>有限的查询功能（到目前为止）</li>
+<li>最终一致是不直观的程序</li>
+</ul>
+<h3 id="关系型数据库简介"><a href="#关系型数据库简介" class="headerlink" title="关系型数据库简介"></a>关系型数据库简介</h3><p>关系型数据库遵循 ACID 规则</p>
+<h4 id="ACID模型"><a href="#ACID模型" class="headerlink" title="ACID模型"></a>ACID模型</h4><p>事务在英文中是transaction，和现实世界中的交易很类似，它有如下四个特性：</p>
+<p>1、A (Atomicity) 原子性</p>
+<p>原子性很容易理解，也就是说事务里的所有操作要么全部做完，要么都不做，事务成功的条件是事务里的所有操作都成功，只要有一个操作失败，整个事务就失败，需要回滚。</p>
+<p>比如银行转账，从A账户转100元至B账户，分为两个步骤：1）从A账户取100元；2）存入100元至B账户。这两步要么一起完成，要么一起不完成，如果只完成第一步，第二步失败，钱会莫名其妙少了100元。</p>
+<p>2、C (Consistency) 一致性</p>
+<p>一致性也比较容易理解，也就是说数据库要一直处于一致的状态，事务的运行不会改变数据库原本的一致性约束。</p>
+<p>例如现有完整性约束a+b=10，如果一个事务改变了a，那么必须得改变b，使得事务结束后依然满足a+b=10，否则事务失败。</p>
+<p>3、I (Isolation) 独立性</p>
+<p>所谓的独立性是指并发的事务之间不会互相影响，如果一个事务要访问的数据正在被另外一个事务修改，只要另外一个事务未提交，它所访问的数据就不受未提交事务的影响。</p>
+<p>比如现在有个交易是从A账户转100元至B账户，在这个交易还未完成的情况下，如果此时B查询自己的账户，是看不到新增加的100元的。</p>
+<p>4、D (Durability) 持久性</p>
+<p>持久性是指一旦事务提交后，它所做的修改将会永久的保存在数据库上，即使出现宕机也不会丢失。</p>
+<h4 id="关系数据库管理系统-Relational-Database-Management-System-的特点："><a href="#关系数据库管理系统-Relational-Database-Management-System-的特点：" class="headerlink" title="关系数据库管理系统(Relational Database Management System)的特点："></a>关系数据库管理系统(Relational Database Management System)的特点：</h4><ul>
+<li><p>1.数据以表格的形式出现</p>
+</li>
+<li><p>2.每行为各种记录名称</p>
+</li>
+<li><p>3.每列为记录名称所对应的数据域</p>
+</li>
+<li><p>4.许多的行和列组成一张表单</p>
+</li>
+<li><p>5.若干的表单组成database</p>
+</li>
+</ul>
+<h3 id="区别与优劣"><a href="#区别与优劣" class="headerlink" title="区别与优劣"></a>区别与优劣</h3><p>1.实质。<br>非关系型数据库的实质：非关系型数据库产品是传统关系型数据库的功能阉割版本，通过减少用不到或很少用的功能，来大幅度提高产品性能。</p>
+<p>2.价格。<br>目前基本上大部分主流的非关系型数据库都是免费的。而比较有名气的关系型数据库，比如Oracle、DB2、MSSQL是收费的。虽然Mysql免费，但它需要做很多工作才能正式用于生产。</p>
+<p>3.功能。<br>实际开发中，有很多业务需求，其实并不需要完整的关系型数据库功能，非关系型数据库的功能就足够使用了。这种情况下，使用性能更高、成本更低的非关系型数据库当然是更明智的选择。</p>
+<h3 id="MongoDB-概念解析"><a href="#MongoDB-概念解析" class="headerlink" title="MongoDB 概念解析"></a>MongoDB 概念解析</h3><table>
+<thead>
+<tr>
+<th>SQL术语/概念</th>
+<th style="text-align:center">MongoDB术语/概念</th>
+<th style="text-align:center">解释/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td style="text-align:center">database</td>
+<td style="text-align:center">数据库</td>
+</tr>
+<tr>
+<td>table</td>
+<td style="text-align:center">collection</td>
+<td style="text-align:center">数据库表/集合</td>
+</tr>
+<tr>
+<td>row</td>
+<td style="text-align:center">document</td>
+<td style="text-align:center">数据记录行/文档</td>
+</tr>
+<tr>
+<td>column</td>
+<td style="text-align:center">field</td>
+<td style="text-align:center">数据字段/域</td>
+</tr>
+<tr>
+<td>index</td>
+<td style="text-align:center">index</td>
+<td style="text-align:center">索引</td>
+</tr>
+<tr>
+<td>table joins</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">表连接,MongoDB不支持</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td style="text-align:center">primary key</td>
+<td style="text-align:center">主键,MongoDB自动将_id字段设置为主键</td>
+</tr>
+</tbody>
+</table>
+<div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-4.png" width> </div>
+
+<p><strong>MongoDB 存储数据结构</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="comment">// 数据库</span></span><br><span class="line">  qq:&#123;</span><br><span class="line">    <span class="comment">// 集合 就是 MySQL 中的表</span></span><br><span class="line">    users:[</span><br><span class="line">      <span class="comment">// 文档 MySQL 表记录</span></span><br><span class="line">      &#123;<span class="attr">name</span>:<span class="string">'a'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">name</span>:<span class="string">'b'</span>,<span class="attr">age</span>:<span class="number">19</span>&#125;,</span><br><span class="line">      &#123;<span class="attr">name</span>:<span class="string">'c'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,</span><br><span class="line">    ],</span><br><span class="line">    product:[</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 数据库</span></span><br><span class="line">  taobao:&#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 数据库</span></span><br><span class="line">  baidu:&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>(MongoDB官方下载)[<a href="https://www.mongodb.com/download-center?jmp=nav#community]" target="_blank" rel="noopener">https://www.mongodb.com/download-center?jmp=nav#community]</a></p>
+<p>安装过程有一个坑:</p>
+<div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-1.png" width> </div>
+
+<p>解决:</p>
+<div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-2.jpg" width> </div>
+
+<p>配置环境变量: 把 MongoDB 路径放到环境变量 PATH 里面</p>
+<div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-6.png" width> </div>
+
+<p>安装成功:</p>
+<div align="center"> <img src="https://raw.githubusercontent.com/CourteousBin/photoRep/master/images/10-7-15-3.png" width> </div>
+
+<h2 id="启动和关闭数据库服务"><a href="#启动和关闭数据库服务" class="headerlink" title="启动和关闭数据库服务"></a>启动和关闭数据库服务</h2><p>启动:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 第一次启动 手动创建数据存储目录文件 c:/data/db</span><br><span class="line"># 在cmd 执行 mongond , 开启服务</span><br><span class="line">mongond</span><br></pre></td></tr></table></figure>
+<p>如果想修改默认数据存储路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath=数据存储路径</span><br></pre></td></tr></table></figure>
+<p>停止:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在开启服务控制台 Ctrl+c 停止服务</span><br><span class="line"></span><br><span class="line">关闭服务控制台也可以</span><br></pre></td></tr></table></figure>
+<p>链接数据库:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 另外开启一个控制台</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure>
+<p>退出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">show dbs - 查看所有数据库</span><br><span class="line"></span><br><span class="line">db - 查看当前操作的数据库</span><br><span class="line"></span><br><span class="line">use 数据库名称 - 切换到指定数据库(如果没有自动创建) </span><br><span class="line"></span><br><span class="line">db.数据库名称.insert(doc_name) - 将文档数据插入集合中</span><br><span class="line"></span><br><span class="line">db.数据库名称.find() - 查询数据</span><br><span class="line"></span><br><span class="line">db.数据库名称.remove(&#123;_id:1&#125;) -  删除集合中的文档，括号里面是限制条</span><br><span class="line"></span><br><span class="line">db.数据库名称.update(&#123;_id:1&#125;,&#123;$set:&#123;&quot;key&quot;:&quot;value&quot;&#125;&#125;) - 修改集合中的文档，第一个参数为待修改的文档，第二个为要修改的内容。如果待修改文档不存在则添加。</span><br><span class="line"></span><br><span class="line">limit(num) - 控制记录的行数</span><br><span class="line"></span><br><span class="line">sort(&#123;key:1&#125;) - 参数1为升序-1为降序</span><br><span class="line"></span><br><span class="line">db.dropDatabase() - 删除数据库(必须先切换到该数据库)</span><br><span class="line"></span><br><span class="line">db.数据库名称.drop() - 删除集合</span><br><span class="line"></span><br><span class="line">$set - 更新键值不存在的话则创建</span><br><span class="line"></span><br><span class="line">$unset - 删除一个键</span><br><span class="line"></span><br><span class="line">$inc - 对文档值为数字的键进行增减操作 </span><br><span class="line"></span><br><span class="line">$push - 将后面值添加到前面，前面必须是数组否则会创建</span><br><span class="line"></span><br><span class="line">$pushAll - 追加多个值到数组中</span><br><span class="line"></span><br><span class="line">$pop - 删除数组第一个或者最后一个元素</span><br><span class="line"></span><br><span class="line">$rename -  修改字段名</span><br></pre></td></tr></table></figure>
+<h2 id="在-Node-中如何操作-MongoDB-数据库"><a href="#在-Node-中如何操作-MongoDB-数据库" class="headerlink" title="在 Node 中如何操作 MongoDB 数据库"></a>在 Node 中如何操作 MongoDB 数据库</h2><h3 id="使用官方-MongoDB-包来操作"><a href="#使用官方-MongoDB-包来操作" class="headerlink" title="使用官方 MongoDB 包来操作"></a>使用官方 MongoDB 包来操作</h3><ul>
+<li><p>npm:<a href="https://www.npmjs.com/package/mongodb" target="_blank" rel="noopener">https://www.npmjs.com/package/mongodb</a></p>
+</li>
+<li><p>gitHub: <a href="https://github.com/mongodb/node-mongodb-native" target="_blank" rel="noopener">https://github.com/mongodb/node-mongodb-native</a></p>
+</li>
+</ul>
+<h3 id="使用第三方-mongoose"><a href="#使用第三方-mongoose" class="headerlink" title="使用第三方 mongoose"></a>使用第三方 mongoose</h3><p>第三方包：<code>mongoose</code> 基于 MongoDB 官方包做了再一次封装 。</p>
+<ul>
+<li><p>官网:<a href="http://mongoosejs.com" target="_blank" rel="noopener">http://mongoosejs.com</a></p>
+</li>
+<li><p>官方指南:<a href="http://mongoosejs.com/docs/guide.html" target="_blank" rel="noopener">http://mongoosejs.com/docs/guide.html</a></p>
+</li>
+<li><p>官方 API 文档:<a href="http://mongoosejs.com/docs/api.html" target="_blank" rel="noopener">http://mongoosejs.com/docs/api.html</a> </p>
+</li>
+</ul>
+<h4 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mongoose</span><br></pre></td></tr></table></figure>
+<p>官方 demo :<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 链接数据库</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/test'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个模型,就是在设计数据库, mongodb 只需要在代码中设计数据库就可以了</span></span><br><span class="line"><span class="keyword">const</span> Cat = mongoose.model(<span class="string">'Cat'</span>, &#123; <span class="attr">name</span>: <span class="built_in">String</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例化一个 cat</span></span><br><span class="line"><span class="keyword">const</span> kitty = <span class="keyword">new</span> Cat(&#123; <span class="attr">name</span>: <span class="string">'Zildjian'</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 持久化保存 kitty 实例</span></span><br><span class="line">kitty.save().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'meow'</span>));</span><br></pre></td></tr></table></figure></p>
+<h3 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h3><p>新增数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设计表结构</span></span><br><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema</span><br><span class="line"></span><br><span class="line"><span class="comment">// 链接数据库</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设计表结构</span></span><br><span class="line"><span class="comment">// 字段名称就是表结构中属性名称</span></span><br><span class="line"><span class="comment">// 约束的目的是为了保证数据的完整性 不能有脏数据</span></span><br><span class="line"><span class="keyword">var</span> blogSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    title: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        required: <span class="literal">true</span> <span class="comment">// 约束 , 必填项</span></span><br><span class="line">    &#125;,</span><br><span class="line">    author: <span class="built_in">String</span>,</span><br><span class="line">    body: <span class="built_in">String</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将文档结构发布为 模型</span></span><br><span class="line"><span class="comment">// 第一个参数 用来表示数据库名称 , mongoose 会将大写名词 转换成 小写复数 </span></span><br><span class="line"><span class="comment">// BLog -&gt; blogs</span></span><br><span class="line"><span class="comment">// 第二个参数就是架构</span></span><br><span class="line"><span class="comment">// 返回值是模型构造函数</span></span><br><span class="line"><span class="keyword">var</span> Blog = mongoose.model(<span class="string">'Blog'</span>, blogSchema);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 新增数据</span></span><br><span class="line"><span class="keyword">var</span> article = <span class="keyword">new</span> Blog(&#123;</span><br><span class="line">  title:<span class="string">'学习node'</span>,</span><br><span class="line">  author:<span class="string">'test'</span>,</span><br><span class="line">  body:<span class="string">'node'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">article.save(<span class="function"><span class="keyword">function</span>(<span class="params">err,ret</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'失败'</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ret);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'成功'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>查询数据:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询数据 </span></span><br><span class="line">  <span class="comment">// 查询所有</span></span><br><span class="line">  Blog.find(<span class="function"><span class="keyword">function</span>(<span class="params">err, ret</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'失败'</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(ret);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 按条件查询</span></span><br><span class="line">    <span class="comment">// find 返回是一个数组</span></span><br><span class="line">    <span class="comment">// findOne 返回的是一个对象</span></span><br><span class="line">  Blog.findOne(&#123;<span class="attr">author</span>:<span class="string">'Bin,'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,ret</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ret);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>删除数据:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Blog.remove(&#123;</span><br><span class="line">  author:<span class="string">'test'</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,ret</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'删除失败'</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ret);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>更新数据:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新数据库</span></span><br><span class="line">  Blog.findByIdAndUpdate(<span class="string">'5b4b1f7c3d822f32606de4f2'</span>,&#123;</span><br><span class="line">    title:<span class="string">'更新数据库'</span></span><br><span class="line">  &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,ret</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ret);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="了解更多"><a href="#了解更多" class="headerlink" title="了解更多"></a>了解更多</h2><p>MongoDB 官网地址：<a href="https://www.mongodb.com/" target="_blank" rel="noopener">https://www.mongodb.com/</a></p>
+<p>MongoDB 官方英文文档：<a href="https://docs.mongodb.com/manual/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/</a></p>
+<p>MongoDB 各平台下载地址：<a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">https://www.mongodb.com/download-center#community</a></p>
+<p>Mongoose 官方地址：<a href="http://mongoosejs.com/" target="_blank" rel="noopener">http://mongoosejs.com/</a></p>
+<p>Mongoose 官方文档：<a href="http://mongoosejs.com/docs/guide.html" target="_blank" rel="noopener">http://mongoosejs.com/docs/guide.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/Git-团队协助开发/" rel="next" title="Git 团队协助开发">
+                <i class="fa fa-chevron-left"></i> Git 团队协助开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/17/zTree初体验/" rel="prev" title="zTree初体验">
+                zTree初体验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/07/15/MongoDB/" data-title="MongoDB" data-url="http://yoursite.com/2018/07/15/MongoDB/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpg" alt="Bin,">
+            
+              <p class="site-author-name" itemprop="name">Bin,</p>
+              <p class="site-description motion-element" itemprop="description">仰望星空，脚踏实地</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CourteousBin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:904343016@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB"><span class="nav-number">1.</span> <span class="nav-text">MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非关系型数据库简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">非关系型数据库简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP模型"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">CAP模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NoSQL的优点-缺点"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">NoSQL的优点/缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系型数据库简介"><span class="nav-number">1.1.2.</span> <span class="nav-text">关系型数据库简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ACID模型"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">ACID模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关系数据库管理系统-Relational-Database-Management-System-的特点："><span class="nav-number">1.1.2.2.</span> <span class="nav-text">关系数据库管理系统(Relational Database Management System)的特点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别与优劣"><span class="nav-number">1.1.3.</span> <span class="nav-text">区别与优劣</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB-概念解析"><span class="nav-number">1.1.4.</span> <span class="nav-text">MongoDB 概念解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动和关闭数据库服务"><span class="nav-number">1.3.</span> <span class="nav-text">启动和关闭数据库服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">1.4.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Node-中如何操作-MongoDB-数据库"><span class="nav-number">1.5.</span> <span class="nav-text">在 Node 中如何操作 MongoDB 数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用官方-MongoDB-包来操作"><span class="nav-number">1.5.1.</span> <span class="nav-text">使用官方 MongoDB 包来操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用第三方-mongoose"><span class="nav-number">1.5.2.</span> <span class="nav-text">使用第三方 mongoose</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#起步"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">起步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增删改查"><span class="nav-number">1.5.3.</span> <span class="nav-text">增删改查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解更多"><span class="nav-number">1.6.</span> <span class="nav-text">了解更多</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bin,</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
