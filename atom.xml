@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-13T15:07:49.553Z</updated>
+  <updated>2019-03-30T01:06:19.658Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javaScript高级程序设计笔记</title>
+    <link href="http://yoursite.com/2019/03/30/javaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2019/03/30/javaScript高级程序设计笔记/</id>
+    <published>2019-03-30T00:51:19.000Z</published>
+    <updated>2019-03-30T01:06:19.658Z</updated>
+    
+    <summary type="html">
+    
+      阅读笔记
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>19年假-异步发展流程</title>
@@ -393,26 +413,6 @@
     
     
       <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6</title>
-    <link href="http://yoursite.com/2018/10/07/ES6/"/>
-    <id>http://yoursite.com/2018/10/07/ES6/</id>
-    <published>2018-10-07T11:52:26.000Z</published>
-    <updated>2018-10-07T11:54:12.775Z</updated>
-    
-    <summary type="html">
-    
-      ES6 学习记录
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
