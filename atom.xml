@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-30T01:06:19.658Z</updated>
+  <updated>2019-05-03T04:30:57.026Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Js模块化</title>
+    <link href="http://yoursite.com/2019/05/03/Js%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    <id>http://yoursite.com/2019/05/03/Js模块化/</id>
+    <published>2019-05-03T04:29:18.000Z</published>
+    <updated>2019-05-03T04:30:57.026Z</updated>
+    
+    <summary type="html">
+    
+      ES6 Module / CommonJS Module 有何差异?
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>javaScript高级程序设计笔记</title>
@@ -382,26 +402,6 @@
     <id>http://yoursite.com/2018/11/27/65279、小程序外部icon/</id>
     <published>2018-11-27T12:06:29.000Z</published>
     <updated>2018-11-27T13:59:41.849Z</updated>
-    
-    <summary type="html">
-    
-      记录工作上遇到的问题
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jsonp、promise</title>
-    <link href="http://yoursite.com/2018/11/22/jsonp%E3%80%81promise/"/>
-    <id>http://yoursite.com/2018/11/22/jsonp、promise/</id>
-    <published>2018-11-22T13:31:53.000Z</published>
-    <updated>2018-11-22T14:39:05.273Z</updated>
     
     <summary type="html">
     
