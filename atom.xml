@@ -37,6 +37,26 @@
   </entry>
   
   <entry>
+    <title>2019前端学习路线</title>
+    <link href="http://yoursite.com/2019/12/30/2019%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    <id>http://yoursite.com/2019/12/30/2019前端学习路线/</id>
+    <published>2019-12-30T12:06:47.000Z</published>
+    <updated>2020-02-05T12:12:43.048Z</updated>
+    
+    <summary type="html">
+    
+      2019 年前端笔记汇总，包含 ES6，DOM，RegExp，Ajax，Jq，Vue， React以及React-Native
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Js模块化</title>
     <link href="http://yoursite.com/2019/05/03/Js%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
     <id>http://yoursite.com/2019/05/03/Js模块化/</id>
@@ -386,26 +406,6 @@
     <summary type="html">
     
       记录工作上遇到的问题
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基本算法</title>
-    <link href="http://yoursite.com/2018/11/28/%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/11/28/基本算法/</id>
-    <published>2018-11-28T12:36:27.000Z</published>
-    <updated>2018-11-28T14:19:22.358Z</updated>
-    
-    <summary type="html">
-    
-      基本算法
     
     </summary>
     
