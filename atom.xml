@@ -37,6 +37,26 @@
   </entry>
   
   <entry>
+    <title>2019 成长与感悟</title>
+    <link href="http://yoursite.com/2019/12/31/2019-%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
+    <id>http://yoursite.com/2019/12/31/2019-成长与感悟/</id>
+    <published>2019-12-31T12:22:08.000Z</published>
+    <updated>2020-02-05T14:38:12.440Z</updated>
+    
+    <summary type="html">
+    
+      2019 成长与感悟
+    
+    </summary>
+    
+      <category term="成长" scheme="http://yoursite.com/categories/%E6%88%90%E9%95%BF/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2019前端学习路线</title>
     <link href="http://yoursite.com/2019/12/30/2019%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
     <id>http://yoursite.com/2019/12/30/2019前端学习路线/</id>
@@ -393,26 +413,6 @@
     
     
       <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swiper无缝滚动</title>
-    <link href="http://yoursite.com/2018/11/29/swiper%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8/"/>
-    <id>http://yoursite.com/2018/11/29/swiper无缝滚动/</id>
-    <published>2018-11-29T13:57:06.000Z</published>
-    <updated>2018-11-29T14:48:21.984Z</updated>
-    
-    <summary type="html">
-    
-      记录工作上遇到的问题
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
     
   </entry>
   
