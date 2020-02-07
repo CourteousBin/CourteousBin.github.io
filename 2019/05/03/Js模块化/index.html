@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -504,7 +504,7 @@
 <p>默认情况下，浏览器是同步加载 JavaScript 脚本，即渲染引擎遇到 <code>&lt;script&gt;</code> 标签就会停下来，等到执行完脚本，再继续向下渲染。如果是外部脚本，还必须加入脚本下载的时间。</p>
 <p>如果脚本体积很大，下载和执行的时间就会很长，因此造成浏览器堵塞，用户会感觉到浏览器“卡死”了，没有任何响应。</p>
 <p>这显然是很不好的体验，所以浏览器允许脚本异步加载，下面就是两种异步加载的语法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"path/to/myModule.js"</span> defer&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"path/to/myModule.js"</span> <span class="keyword">async</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"path/to/myModule.js"</span> defer&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="path/</span>to/myModule.js<span class="string">" async&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>defer/ async 脚本异步加载, 渲染引擎遇到这一条命令, 就会开始下载外部脚本, 但是不会等他下载和执行, 而是执行下面的命令.</p>
 <p>defer/ async 区别:</p>
 <p>defer 要等到渲染UI以及其他的 javascript 脚本执行后, 才会执行.</p>
@@ -513,9 +513,9 @@
 <p>另外, 如果有多个 defer 脚本, 会按照他们在页面出现的顺序加载, </p>
 <p>而多个 async 是不能保证加载顺序的</p>
 <h4 id="加载规则"><a href="#加载规则" class="headerlink" title="加载规则"></a>加载规则</h4><p>浏览器加载 ES6 模块, 也可以使用 <code>&lt;script&gt;</code> 标签, 但是要加入 <code>type=&quot;module&quot;</code> 属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"moduel"</span> src=<span class="string">"./a.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"moduel"</span> src=<span class="string">"./a.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>浏览器对于带有 <code>type=&quot;module&quot;</code> 的 <code>script</code> 都是异步加载, 不会造成浏览器堵塞, 等到整个页面加载完成, 再执行模块脚本, 等同于 <code>defer</code> 属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"module"</span> src=<span class="string">"./foo.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;!-- 等同于 --&gt;</span><br><span class="line">&lt;script type=<span class="string">"module"</span> src=<span class="string">"./foo.js"</span> defer&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"module"</span> src=<span class="string">"./foo.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!-- 等同于 --&gt;</span></span><br><span class="line"><span class="regexp">&lt;script type="module" src="./</span>foo.js<span class="string">" defer&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>ES6 模块也允许内嵌在网页中, 语法与外部脚本一致</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"module"</span>&gt;</span><br><span class="line"><span class="keyword">import</span> utils <span class="keyword">from</span> <span class="string">'./utils.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...other Code</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <p>注意几点:</p>
@@ -823,13 +823,20 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Bin,</span>
 
   
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
 </div>
 
 
@@ -846,6 +853,10 @@
 
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共132.3k字</span>
+</div>
         
 
 

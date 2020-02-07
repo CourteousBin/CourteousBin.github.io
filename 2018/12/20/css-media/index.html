@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -372,7 +372,7 @@
       
         <h1 id="min-device-pixel-ratio"><a href="#min-device-pixel-ratio" class="headerlink" title="min-device-pixel-ratio"></a>min-device-pixel-ratio</h1><h2 id="border-1px"><a href="#border-1px" class="headerlink" title="border:1px"></a>border:1px</h2><p>由于设备像素比存在的原因，我们在处理设计图的一些边框时，对于1px的border，如果在代码里将其写死，可能在不同设备像素比的设备中，粗细不一样，尤其是在目前大多数设备像素比为2的设备中，过粗。</p>
 <p>那么利用媒体查询和 “min-device-pixel-ratio” 就可以轻松的搞定，实现货真价实的1px border。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    &amp;::after&#123;</span><br><span class="line">        @<span class="keyword">extend</span> %border-<span class="number">1px</span>;</span><br><span class="line">        <span class="selector-tag">bottom</span>: 0;</span><br><span class="line">        <span class="selector-tag">border-top</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ccc</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    &amp;<span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">        @extend %border-1px;</span><br><span class="line">        <span class="selector-tag">top</span>: 0;</span><br><span class="line">        <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ccc</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">1.5</span>),(min-device-pixel-ratio:<span class="number">1.5</span>)&#123;</span><br><span class="line">    <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">        &amp;::after&#123;</span><br><span class="line">            <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.7</span>);</span><br><span class="line">            <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.7</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">2</span>),(min-device-pixel-ratio:<span class="number">2</span>)&#123;</span><br><span class="line">    <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">        &amp;::after&#123;</span><br><span class="line">            <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.5</span>);</span><br><span class="line">            <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    &amp;::after&#123;</span><br><span class="line">        <span class="keyword">@extend</span> %border-<span class="number">1px</span>;</span><br><span class="line">        <span class="selector-tag">bottom</span>: 0;</span><br><span class="line">        <span class="selector-tag">border-top</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ccc</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    &amp;<span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">        @extend %border-1px;</span><br><span class="line">        <span class="selector-tag">top</span>: 0;</span><br><span class="line">        <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ccc</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-ratio:</span><span class="number">1.5</span>),(<span class="attribute">min-device-pixel-ratio:</span><span class="number">1.5</span>)&#123;</span><br><span class="line">    <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">        &amp;::after&#123;</span><br><span class="line">            <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.7</span>);</span><br><span class="line">            <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.7</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-ratio:</span><span class="number">2</span>),(<span class="attribute">min-device-pixel-ratio:</span><span class="number">2</span>)&#123;</span><br><span class="line">    <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">        &amp;::after&#123;</span><br><span class="line">            <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.5</span>);</span><br><span class="line">            <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="devicePixelRatio简单介绍"><a href="#devicePixelRatio简单介绍" class="headerlink" title="devicePixelRatio简单介绍"></a>devicePixelRatio简单介绍</h2><p>本文所说<code>devicePixelRatio</code>其实指的是<code>window.devicePixelRatio</code>.</p>
 <blockquote>
 <p>window.devicePixelRatio是设备上物理像素和设备独立像素(device-independent pixels (dips))的比例。<br>公式表示就是：window.devicePixelRatio = 物理像素 / dips</p>
@@ -613,13 +613,20 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Bin,</span>
 
   
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
 </div>
 
 
@@ -636,6 +643,10 @@
 
 
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共132.3k字</span>
+</div>
         
 
 
