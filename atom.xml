@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-07T09:45:48.464Z</updated>
+  <updated>2020-02-10T10:23:43.625Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git提交信息规范化</title>
+    <link href="http://yoursite.com/2020/02/10/Git%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E8%A7%84%E8%8C%83%E5%8C%96/"/>
+    <id>http://yoursite.com/2020/02/10/Git提交信息规范化/</id>
+    <published>2020-02-10T10:22:17.000Z</published>
+    <updated>2020-02-10T10:23:43.625Z</updated>
+    
+    <summary type="html">
+    
+      Git 每次 commit 的时候你会写什么?
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>经济基础知识</title>
@@ -386,26 +406,6 @@
     <summary type="html">
     
       什么是webApp?
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php上传视频、小程序音频</title>
-    <link href="http://yoursite.com/2018/12/08/php%E4%B8%8A%E4%BC%A0%E8%A7%86%E9%A2%91%E3%80%81%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%9F%B3%E9%A2%91/"/>
-    <id>http://yoursite.com/2018/12/08/php上传视频、小程序音频/</id>
-    <published>2018-12-08T14:18:15.000Z</published>
-    <updated>2018-12-08T14:57:28.711Z</updated>
-    
-    <summary type="html">
-    
-      php上传视频、小程序音频
     
     </summary>
     
