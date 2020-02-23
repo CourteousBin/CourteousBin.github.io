@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-10T10:23:43.625Z</updated>
+  <updated>2020-02-23T11:57:21.582Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaSE 笔记</title>
+    <link href="http://yoursite.com/2020/02/23/JavaSE-%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/02/23/JavaSE-笔记/</id>
+    <published>2020-02-23T11:34:40.000Z</published>
+    <updated>2020-02-23T11:57:21.582Z</updated>
+    
+    <summary type="html">
+    
+      谈谈我为什么学 Java , 首先是 Java 的市场规模, 许多企业级的应用都是用 Java 作为编程语言, 在 TIOBE 榜单也常年居首; 第二点就是 Andiord 也是使用 Java 作为开发语言; 第三点就是掌握了 Java 这门面向对象语言, 学习 Go 、kotlin 能够平滑过渡; 第四点就是前端不懂面向服务器编程会比较吃亏。
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Git提交信息规范化</title>
@@ -386,26 +406,6 @@
     <summary type="html">
     
       Js真不适合做减法!
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-      <category term="工作" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>webApp</title>
-    <link href="http://yoursite.com/2018/12/08/webApp/"/>
-    <id>http://yoursite.com/2018/12/08/webApp/</id>
-    <published>2018-12-08T14:56:54.000Z</published>
-    <updated>2018-12-10T12:51:11.481Z</updated>
-    
-    <summary type="html">
-    
-      什么是webApp?
     
     </summary>
     
